@@ -2,7 +2,6 @@ const request = require('supertest')
 const server = require('../server')
 const db = require('../../data/db-config')
 
-
 beforeAll(async () => {
     await db.migrate.rollback()
     await db.migrate.latest()
@@ -18,7 +17,7 @@ beforeAll(async () => {
   test('sanity', () => {
     expect(true).toBeTruthy()
   })
-
+  
   describe('[POST] /', () => {
     it('returns a status 201 CREATED', async () => {
       const res = await request(server).post('/api/users').send({ name: 'bilbo' })
